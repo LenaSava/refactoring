@@ -2,19 +2,19 @@ package refactoring;
 import java.util.HashMap;
 
 public class Main {
-    private static HashMap <String, Function> map;
+    private static HashMap <String, FunctionBase> map;
     static {
         map = new HashMap< >();
-        Function fs0  = new StringFunction0();
-        Function fi0 = new IntegerFunction0();
-        Function fi1 = new IntegerFunction1();
-        Function fi2 = new IntegerFunction2();
-        Function fi3 = new IntegerFunction3();
-        map.put("0java.lang.Stringjava.lang.String",  fs0);
-        map.put("0java.lang.Integerjava.lang.Integer", fi0);
-        map.put("1java.lang.Integerjava.lang.Integer", fi1);
-        map.put("2java.lang.Integerjava.lang.Integer", fi2);
-        map.put("3java.lang.Integerjava.lang.Integer", fi3);
+        FunctionBase string  = new StringFunction();
+        FunctionBase funcPlus = new IntegerPlus();
+        FunctionBase funcMinus = new IntegerMinus();
+        FunctionBase funcMulti = new IntegerMulti();
+        FunctionBase funcDiv = new IntegerDivision();
+        map.put("0java.lang.Stringjava.lang.String",  string);
+        map.put("0java.lang.Integerjava.lang.Integer", funcPlus);
+        map.put("1java.lang.Integerjava.lang.Integer", funcMinus);
+        map.put("2java.lang.Integerjava.lang.Integer", funcMulti);
+        map.put("3java.lang.Integerjava.lang.Integer", funcDiv);
     }
 
     public static void main(String[] args) throws Exception {
@@ -27,15 +27,15 @@ public class Main {
     }
 
     static  <T> Object function(T a, T b, int action) throws Exception {
-        Function f;
+        FunctionBase base;
         try {
             String tmp= action+ getName(a)+  getName(b);
-            f= map.get(tmp);
-            f.setAB(a,b);
+            base= map.get(tmp);
+            base.setAB(a,b);
         } catch (NullPointerException e) {
             throw new  Exception();
         }
-        return f.getResult();
+        return base.getResult();
     }
     private static  <T>String getName(T s) {
         return  s.getClass().getName();

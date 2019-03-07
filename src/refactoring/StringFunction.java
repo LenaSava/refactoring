@@ -1,6 +1,6 @@
 package refactoring;
 
-class StringFunction0 extends FunctionBaseClass implements Function {
+class StringFunction extends FunctionBase {
     @Override
     public String getResult( ) {
         return  (String)a+b;

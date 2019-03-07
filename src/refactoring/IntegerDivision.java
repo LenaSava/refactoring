@@ -1,6 +1,6 @@
 package refactoring;
 
-class IntegerFunction3  extends  FunctionBaseClass implements Function  {
+class IntegerDivision extends FunctionBase {
     @Override
     public Integer getResult( ) {
         return  (Integer) a/(Integer) b;

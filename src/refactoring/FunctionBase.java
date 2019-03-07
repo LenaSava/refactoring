@@ -1,6 +1,6 @@
 package refactoring;
 
- class FunctionBaseClass<T>  implements Function {
+ class FunctionBase<T>  {
     T a;
     T b;
     public T getResult() {

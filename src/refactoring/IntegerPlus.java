@@ -1,6 +1,6 @@
 package refactoring;
 
-class IntegerFunction0  extends  FunctionBaseClass implements Function  {
+class IntegerPlus extends FunctionBase {
     @Override
     public Integer getResult( ) {
         return  (Integer) a+(Integer) b;
